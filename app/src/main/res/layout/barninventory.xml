@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ImageView
+            android:id="@+id/barninventory0"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="barnInventoryClicked"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/barninventory0_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:src="@drawable/food_selection"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory0"
+            app:layout_constraintTop_toTopOf="@id/barninventory0"/>
+
+    <ImageView
+            android:id="@+id/barninventory1"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="1dp"
+            android:onClick="barnInventoryClicked"
+            app:layout_constraintLeft_toRightOf="@id/barninventory0"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/barninventory1_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory1"
+            app:layout_constraintTop_toTopOf="@id/barninventory1"/>
+
+    <ImageView
+            android:id="@+id/barninventory2"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="barnInventoryClicked"
+            android:layout_marginTop="1dp"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory0"
+            app:layout_constraintTop_toBottomOf="@id/barninventory0"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/barninventory2_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory2"
+            app:layout_constraintTop_toTopOf="@id/barninventory2"/>
+
+    <ImageView
+            android:id="@+id/barninventory3"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="barnInventoryClicked"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintTop_toBottomOf="@id/barninventory0"
+            app:layout_constraintLeft_toRightOf="@id/barninventory2"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/barninventory3_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory3"
+            app:layout_constraintTop_toTopOf="@id/barninventory3"/>
+
+    <ImageView
+            android:id="@+id/barninventory4"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="barnInventoryClicked"
+            android:layout_marginTop="1dp"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory2"
+            app:layout_constraintTop_toBottomOf="@id/barninventory2"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/barninventory4_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory4"
+            app:layout_constraintTop_toTopOf="@id/barninventory4"/>
+
+    <ImageView
+            android:id="@+id/barninventory5"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="barnInventoryClicked"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintTop_toBottomOf="@id/barninventory2"
+            app:layout_constraintLeft_toRightOf="@id/barninventory4"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/barninventory5_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:src="@drawable/food_selection"
+            app:layout_constraintLeft_toLeftOf="@id/barninventory5"
+            app:layout_constraintTop_toTopOf="@id/barninventory5"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

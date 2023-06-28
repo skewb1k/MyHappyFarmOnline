@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ImageView
+            android:id="@+id/hand0"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="handClicked"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/hand0_selection"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            app:layout_constraintLeft_toLeftOf="@id/hand0"
+            app:layout_constraintTop_toTopOf="@id/hand0"/>
+
+    <ImageView
+            android:id="@+id/hand1"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="5dp"
+            android:onClick="handClicked"
+            app:layout_constraintLeft_toRightOf="@id/hand0"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/hand1_selection"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            app:layout_constraintLeft_toLeftOf="@id/hand1"
+            app:layout_constraintTop_toTopOf="@id/hand1"/>
+
+    <ImageView
+            android:id="@+id/hand2"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="handClicked"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintLeft_toRightOf="@id/hand1"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/hand2_selection"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            app:layout_constraintLeft_toLeftOf="@id/hand2"
+            app:layout_constraintTop_toTopOf="@id/hand2"/>
+
+    <ImageView
+            android:id="@+id/hand3"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="handClicked"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/hand0"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/hand3_selection"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            app:layout_constraintLeft_toLeftOf="@id/hand3"
+            app:layout_constraintTop_toTopOf="@id/hand3"/>
+
+    <ImageView
+            android:id="@+id/hand4"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="handClicked"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/hand1"
+            app:layout_constraintLeft_toRightOf="@id/hand3"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/hand4_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="@id/hand4"
+            app:layout_constraintTop_toTopOf="@id/hand4"/>
+
+    <ImageView
+            android:id="@+id/hand5"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:onClick="handClicked"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/hand2"
+            app:layout_constraintLeft_toRightOf="@id/hand4"
+            android:src="@drawable/carrot"/>
+    <ImageView
+            android:id="@+id/hand5_selection"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food_selection"
+            app:layout_constraintLeft_toLeftOf="@id/hand5"
+            app:layout_constraintTop_toTopOf="@id/hand5"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

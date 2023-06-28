@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+            android:id="@+id/roomcode"
+            android:text="Room code:"
+            android:fontFamily="sans-serif"
+            android:textSize="32sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_centerHorizontal="true"/>
+
+    <Button
+            android:text="OK"
+            android:textSize="18sp"
+            android:singleLine="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="enterNicknameClicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

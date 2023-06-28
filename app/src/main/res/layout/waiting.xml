@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+            android:id="@+id/urwaiting"
+            android:text="Waiting for host to start game..."
+            android:fontFamily="sans-serif"
+            android:textSize="26sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+    <Button
+            android:id="@+id/leaveroom"
+            android:text="Leave room"
+            android:onClick="leaveRoomClicked"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/urwaiting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</RelativeLayout>
