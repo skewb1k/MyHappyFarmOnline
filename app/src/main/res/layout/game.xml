@@ -61,7 +61,7 @@
             android:layout_height="40dp"
             android:text="@string/plant_title"
             android:onClick="plantClicked"
-            android:textSize="12sp"
+            android:textSize="@dimen/plant_fontsize"
             android:layout_marginBottom="10dp"
             android:visibility="visible"
             android:layout_marginRight="71dp"
