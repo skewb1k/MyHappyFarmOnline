@@ -1,2 +1,2 @@
 # MyHappyFarmOnline
- Android game on java based on a "My Happy Farm" tavle game
+ Android game based on a "My Happy Farm" table game
