@@ -9,13 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myhappyfarm.R;
 import com.example.myhappyfarm.utils.Room;
 import com.example.myhappyfarm.utils.RoomAdapter;
+import com.example.myhappyfarm.utils.Utils;
 import com.google.firebase.database.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 public class RoomsActivity extends AppCompatActivity {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://myhappyfarmonline-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance(Utils.DB_REF_URL).getReference();
     private RoomAdapter roomAdapter;
     ArrayList<Room> rooms;
     private ListView rooms_list;

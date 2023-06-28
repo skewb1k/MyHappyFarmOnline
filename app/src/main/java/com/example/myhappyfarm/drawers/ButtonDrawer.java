@@ -1,4 +1,4 @@
-package com.example.myhappyfarm.managers;
+package com.example.myhappyfarm.drawers;
 
 import android.view.View;
 import android.widget.Button;

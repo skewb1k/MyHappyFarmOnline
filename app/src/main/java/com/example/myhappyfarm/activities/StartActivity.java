@@ -27,11 +27,13 @@ public class StartActivity extends AppCompatActivity {
 
     public void enterNicknameClicked(View view) {
         String nickname = nickname_edit.getText().toString();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("nickname", nickname);
-        editor.apply();
-        Intent intent = new Intent(this, RoomsActivity.class);
-        intent.putExtra("nickname", nickname);
-        startActivity(intent);
+        if (!nickname.equals("")) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("nickname", nickname);
+            editor.apply();
+            Intent intent = new Intent(this, RoomsActivity.class);
+            intent.putExtra("nickname", nickname);
+            startActivity(intent);
+        }
     }
 }

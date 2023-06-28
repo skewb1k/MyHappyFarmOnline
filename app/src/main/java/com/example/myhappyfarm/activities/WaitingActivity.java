@@ -7,11 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myhappyfarm.R;
+import com.example.myhappyfarm.utils.Utils;
 import com.google.firebase.database.*;
 import org.jetbrains.annotations.NotNull;
 
 public class WaitingActivity extends AppCompatActivity {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://myhappyfarmonline-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance(Utils.DB_REF_URL).getReference();
     private String nickname;
     private String room_id;
     private final ChildEventListener removeRoomListener = new ChildEventListener() {

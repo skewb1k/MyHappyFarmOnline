@@ -3,6 +3,8 @@ package com.example.myhappyfarm.utils;
 import java.util.ArrayList;
 
 public class Utils {
+    public static String DB_REF_URL = "https://myhappyfarmonline-default-rtdb.europe-west1.firebasedatabase.app/";
+
     public static String listToString(ArrayList<Integer> list) {
         StringBuilder r = new StringBuilder();
         for (Integer i : list) {

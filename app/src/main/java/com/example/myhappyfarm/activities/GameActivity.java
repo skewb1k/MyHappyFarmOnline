@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myhappyfarm.R;
+import com.example.myhappyfarm.drawers.ButtonDrawer;
+import com.example.myhappyfarm.drawers.PlayerDrawer;
 import com.example.myhappyfarm.game.Card;
 import com.example.myhappyfarm.game.Game;
-import com.example.myhappyfarm.managers.ButtonDrawer;
 import com.example.myhappyfarm.managers.CardManager;
 import com.example.myhappyfarm.managers.FoodMarketManager;
-import com.example.myhappyfarm.managers.PlayerDrawer;
 import com.example.myhappyfarm.utils.EndDialogFragment;
 import com.example.myhappyfarm.utils.IEndGame;
 import com.example.myhappyfarm.utils.Utils;
@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.Objects;
 
 public class GameActivity extends AppCompatActivity implements IEndGame {
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://myhappyfarmonline-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance(Utils.DB_REF_URL).getReference();
     private Game game;
     private ArrayList<String> players;
     private ArrayList<PlayerDrawer> playerDrawers;
@@ -106,7 +106,7 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
         public void onCancelled(@NonNull @NotNull DatabaseError error) {
         }
     };
-    ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,10 +1,11 @@
-package com.example.myhappyfarm.managers;
+package com.example.myhappyfarm.drawers;
 
 import android.widget.Button;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.myhappyfarm.R;
 import com.example.myhappyfarm.game.Card;
 import com.example.myhappyfarm.game.FoodCard;
+import com.example.myhappyfarm.managers.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
