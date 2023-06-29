@@ -163,7 +163,7 @@ public class Game {
                 animalTerms.add(players.get(i).getAnimal(animal));
                 animalTerms.get(i).add(0, 0);
             }
-            int[] maxnindex = new int[]{0, 0};
+            int[] maxnindex = new int[]{-1, 0};
             for (int i = 0; i < players.size(); i++) {
                 int size = animalTerms.get(i).size();
                 if (size == 1) {
@@ -171,9 +171,14 @@ public class Game {
                 } else if (maxnindex[0] < size) {
                     maxnindex[0] = size;
                     maxnindex[1] = i;
+                } else if (maxnindex[0] == size) {
+                    maxnindex[0] = -1;
+                    maxnindex[1] = i;
                 }
             }
-            animalTerms.get(maxnindex[1]).set(0, 3);
+            if (maxnindex[0] != -1) {
+                animalTerms.get(maxnindex[1]).set(0, 3);
+            }
             for (int i = 0; i < players.size(); i++) {
                 res.get(i).put(animal, animalTerms.get(i));
             }

@@ -203,7 +203,7 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
                         }
                     }
                 }
-                finalMessage.append(players.get(k)).append(" - total ").append(sum).append(": ");
+                finalMessage.append(players.get(k)).append(" - ").append(getResources().getString(R.string.total_title)).append(" ").append(sum).append(": ");
                 finalMessage.append(statsMessage);
                 finalMessage.append("\n");
                 winners.add(sum);
@@ -215,6 +215,7 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
             Bundle args = new Bundle();
             args.putString("message", finalMessage.toString());
             dialog.setArguments(args);
+            dialog.setCancelable(false);
             dialog.show(getSupportFragmentManager(), "custom");
             return true;
         }

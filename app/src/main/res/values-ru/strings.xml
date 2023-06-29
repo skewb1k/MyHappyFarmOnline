@@ -5,6 +5,7 @@
     <string name="waiting_title">Ожидание хоста…</string>
     <string name="leave_room_title">Покинуть комнату</string>
     <string name="join">Присоединиться</string>
+    <string name="total_title">всего</string>
     <string name="start_game">Начать игру</string>
     <string name="players_title">Игроки</string>
     <string name="ok_title">OK</string>

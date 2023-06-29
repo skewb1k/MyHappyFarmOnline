@@ -5,6 +5,7 @@
     <string name="waiting_title">Waiting for host to start game…</string>
     <string name="leave_room_title">Leave room</string>
     <string name="join">Join</string>
+    <string name="total_title">total</string>
     <string name="start_game">Start game</string>
     <string name="players_title">Players</string>
     <string name="ok_title">OK</string>
