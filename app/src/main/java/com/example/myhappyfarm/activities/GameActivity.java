@@ -21,10 +21,7 @@ import com.example.myhappyfarm.utils.Utils;
 import com.google.firebase.database.*;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Objects;
+import java.util.*;
 
 public class GameActivity extends AppCompatActivity implements IEndGame {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance(Utils.DB_REF_URL).getReference();
@@ -185,17 +182,38 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
 
     public boolean endGame() {
         if (game.checkEnd()) {
-            ArrayList<Integer> winners = game.getWinner();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < players.size(); i++) {
-                sb.append(players.get(i)).append(": ").append(winners.get(i));
-                sb.append("\n");
+            ArrayList<HashMap<String, ArrayList<Integer>>> playersScores = game.getPlayersScores();
+            ArrayList<Integer> winners = new ArrayList<>(3);
+            int sum;
+            StringBuilder finalMessage = new StringBuilder();
+            StringBuilder statsMessage;
+            for (int k = 0; k < playersScores.size(); k++) {
+                statsMessage = new StringBuilder();
+                sum = 0;
+                for (String animal : playersScores.get(k).keySet()) {
+                    statsMessage.append("\n  ").append(animal).append(": (");
+                    for (int i = 0; i < playersScores.get(k).get(animal).size(); i++) {
+                        sum += playersScores.get(k).get(animal).get(i);
+                        statsMessage.append(playersScores.get(k).get(animal).get(i));
+                        if (i == 0) {
+                            statsMessage.append(")");
+                        }
+                        if (i != playersScores.get(k).get(animal).size() - 1) {
+                            statsMessage.append(" + ");
+                        }
+                    }
+                }
+                finalMessage.append(players.get(k)).append(" - total ").append(sum).append(": ");
+                finalMessage.append(statsMessage);
+                finalMessage.append("\n");
+                winners.add(sum);
             }
-            sb.append(getResources().getString(R.string.player_title)).append(players.get(winners.indexOf(Collections.max(winners))));
-            sb.append(getResources().getString(R.string.wonwithmaxscore)).append(Collections.max(winners)).append("!");
+            int winnerScore = Collections.max(winners);
+            finalMessage.append(getResources().getString(R.string.player_title)).append(" ").append(players.get(winners.indexOf(winnerScore)));
+            finalMessage.append(" ").append(getResources().getString(R.string.wonwithmaxscore)).append(" ").append(winnerScore).append("!");
             EndDialogFragment dialog = new EndDialogFragment();
             Bundle args = new Bundle();
-            args.putString("message", sb.toString());
+            args.putString("message", finalMessage.toString());
             dialog.setArguments(args);
             dialog.show(getSupportFragmentManager(), "custom");
             return true;

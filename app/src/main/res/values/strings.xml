@@ -11,6 +11,6 @@
     <string name="enter_nickname">Enter nickname</string>
     <string name="plant_title">PLANT</string>
     <string name="endgame_title">End game</string>
-    <string name="player_title">Player </string>
-    <string name="wonwithmaxscore"> won with max score </string>
+    <string name="player_title">Player</string>
+    <string name="wonwithmaxscore">won with max score</string>
 </resources>

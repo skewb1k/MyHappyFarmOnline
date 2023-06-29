@@ -1,6 +1,9 @@
 package com.example.myhappyfarm.game;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class Game {
     private ArrayList<Player> players;
@@ -29,7 +32,7 @@ public class Game {
         return currentPlayer;
     }
 
-    public Map<String, ArrayList<Integer>> getAnimals(int player) {
+    public HashMap<String, ArrayList<Integer>> getAnimals(int player) {
         return players.get(player).getAnimals();
     }
 
@@ -148,34 +151,33 @@ public class Game {
         return getAnimalMarket().size() == 0;
     }
 
-    public ArrayList<Integer> getWinner() {
-        ArrayList<HashMap<String, Integer>> playerScores = new ArrayList<>(3);
-        ArrayList<Integer> size = new ArrayList<>();
-        ArrayList<Integer> score;
-        HashMap<String, Integer> max;
+
+    public ArrayList<HashMap<String, ArrayList<Integer>>> getPlayersScores() {
+        ArrayList<HashMap<String, ArrayList<Integer>>> res = new ArrayList<>(3);
         for (int i = 0; i < players.size(); i++) {
-            playerScores.add(new HashMap<>());
+            res.add(new HashMap<>());
         }
-        for (String animal : new String[]{"pig", "rabbit", "cow", "sheep"}) {
+        ArrayList<ArrayList<Integer>> animalTerms = new ArrayList<>(3);
+        for (String animal : new String[]{"rabbit", "sheep", "pig", "cow"}) {
             for (int i = 0; i < players.size(); i++) {
-                score = players.get(i).getScore(animal);
-                playerScores.get(i).put(animal, score.get(0));
-                size.add(score.get(1));
+                animalTerms.add(players.get(i).getAnimal(animal));
+                animalTerms.get(i).add(0, 0);
             }
-            max = playerScores.get(size.indexOf(Collections.max(size)));
-            if (max.get(animal) > 0) {
-                max.put(animal, max.get(animal) + 3);
+            int[] maxnindex = new int[]{0, 0};
+            for (int i = 0; i < players.size(); i++) {
+                int size = animalTerms.get(i).size();
+                if (size == 1) {
+                    animalTerms.get(i).set(0, -5);
+                } else if (maxnindex[0] < size) {
+                    maxnindex[0] = size;
+                    maxnindex[1] = i;
+                }
             }
-            size.clear();
-        }
-        ArrayList<Integer> res = new ArrayList<>();
-        Integer sum;
-        for (int i = 0; i < players.size(); i++) {
-            sum = 0;
-            for (Integer f : playerScores.get(i).values()) {
-                sum += f;
+            animalTerms.get(maxnindex[1]).set(0, 3);
+            for (int i = 0; i < players.size(); i++) {
+                res.get(i).put(animal, animalTerms.get(i));
             }
-            res.add(sum);
+            animalTerms.clear();
         }
         return res;
     }

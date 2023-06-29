@@ -27,7 +27,7 @@ public class FoodMarket {
 
 
     public void sell(FoodCard card) {
-        deck.add(new Random().nextInt(deck.size() - 7) + 7, card);
+        deck.add(card);
     }
 
     public FoodCard buy(int i) {
