@@ -180,7 +180,7 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
         databaseReference.child("games").child(room_id).removeValue();
     }
 
-    public boolean endGame() {
+    public void endGame() {
         if (game.checkEnd()) {
             ArrayList<HashMap<String, ArrayList<Integer>>> playersScores = game.getPlayersScores();
             ArrayList<Integer> winners = new ArrayList<>(3);
@@ -217,9 +217,7 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
             dialog.setArguments(args);
             dialog.setCancelable(false);
             dialog.show(getSupportFragmentManager(), "custom");
-            return true;
         }
-        return false;
     }
 
     @Override
