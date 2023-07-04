@@ -66,6 +66,7 @@ public class CreateRoomActivity extends AppCompatActivity {
                     intent.putExtra("host", true);
                     databaseReference.child("games").child(room_id).child("players").removeEventListener(this);
                     startActivity(intent);
+                    finish();
                 }
             }
 

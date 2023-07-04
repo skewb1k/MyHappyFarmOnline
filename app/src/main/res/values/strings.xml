@@ -9,9 +9,13 @@
     <string name="start_game">Start game</string>
     <string name="players_title">Players</string>
     <string name="ok_title">OK</string>
+    <string name="exit_title">EXIT</string>
     <string name="enter_nickname">Enter nickname</string>
     <string name="plant_title">PLANT</string>
     <string name="endgame_title">End game</string>
+    <string name="oldversion_title">Oops! Your app version is outdated</string>
+    <string name="your_version">Your version:</string>
+    <string name="latest_version">Latest version:</string>
     <string name="player_title">Player</string>
     <string name="wonwithmaxscore">won with max score</string>
 </resources>

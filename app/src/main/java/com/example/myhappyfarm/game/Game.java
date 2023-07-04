@@ -110,17 +110,28 @@ public class Game {
             for (Integer animalCard : animalCards) {
                 requiredCards.addAll(getAnimalMarket().get(animalCard).getCost());
             }
-            ArrayList<Integer> copyFoodCards = new ArrayList<>();
-            for (Integer f : foodCards) {
-                copyFoodCards.add(getBarnInventory(currentPlayer).get(f).getValue());
+            if (requiredCards.size() != foodCards.size()) {
+                return false;
             }
-            if (getNewBarnInventory(requiredCards, copyFoodCards) != null) {
+            ArrayList<Integer> foodValues = new ArrayList<>();
+            for (Integer f : foodCards) {
+                foodValues.add(getBarnInventory(currentPlayer).get(f).getValue());
+            }
+            int k = 0;
+            for (Integer c : requiredCards) {
+                if (c == 0) {
+                    k++;
+                } else {
+                    foodValues.remove(c);
+                }
+            }
+            if (foodValues.size() == k) {
                 Collections.sort(animalCards);
                 Collections.reverse(animalCards);
                 for (Integer animalCard : animalCards) {
                     players.get(currentPlayer).addAnimal(animalMarket.buy(animalCard));
                 }
-                sellFoodCard(foodCards, false);
+                sellFoodCards(foodCards, false);
                 if (phase == 0) {
                     phase = 5;
                 } else {
@@ -132,20 +143,6 @@ public class Game {
         return false;
     }
 
-    private ArrayList<Integer> getNewBarnInventory(ArrayList<Integer> requiredCards, ArrayList<Integer> foodCards) {
-        int k = 0;
-        for (Integer c : requiredCards) {
-            if (c == 0) {
-                k++;
-            } else {
-                foodCards.remove(c);
-            }
-        }
-        if (foodCards.size() == k) {
-            return foodCards;
-        }
-        return null;
-    }
 
     public boolean checkEnd() {
         return getAnimalMarket().size() == 0;
@@ -230,7 +227,7 @@ public class Game {
 
     public boolean sell(ArrayList<Integer> cards) {
         if (phase != 4) {
-            sellFoodCard(cards, true);
+            sellFoodCards(cards, true);
             if (phase == 0) {
                 phase = 4;
             } else {
@@ -241,7 +238,7 @@ public class Game {
         return false;
     }
 
-    private void sellFoodCard(ArrayList<Integer> cards, boolean b) {
+    private void sellFoodCards(ArrayList<Integer> cards, boolean b) {
         Collections.sort(cards);
         Collections.reverse(cards);
         for (Integer card : cards) {

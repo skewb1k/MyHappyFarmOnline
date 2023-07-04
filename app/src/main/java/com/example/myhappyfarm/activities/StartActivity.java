@@ -6,8 +6,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.myhappyfarm.BuildConfig;
 import com.example.myhappyfarm.R;
+import com.example.myhappyfarm.utils.Utils;
+import com.google.firebase.database.*;
+import org.jetbrains.annotations.NotNull;
 
 public class StartActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;

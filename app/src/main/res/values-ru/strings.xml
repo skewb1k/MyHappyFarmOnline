@@ -8,10 +8,14 @@
     <string name="total_title">всего</string>
     <string name="start_game">Начать игру</string>
     <string name="players_title">Игроки</string>
-    <string name="ok_title">OK</string>
+    <string name="ok_title">ОК</string>
+    <string name="exit_title">ВЫЙТИ</string>
     <string name="enter_nickname">Введите никнейм</string>
     <string name="plant_title">ПОСАДИТЬ</string>
     <string name="endgame_title">Конец игры</string>
+    <string name="oldversion_title">Упс! Версия приложения устарела</string>
+    <string name="your_version">Ваша версия:</string>
+    <string name="latest_version">Последняя версия:</string>
     <string name="player_title">Игрок</string>
     <string name="wonwithmaxscore">выйграл с наибольшим количеством очков</string>
 </resources>

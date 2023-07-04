@@ -6,16 +6,15 @@ import android.view.View;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.myhappyfarm.BuildConfig;
 import com.example.myhappyfarm.R;
-import com.example.myhappyfarm.utils.Room;
-import com.example.myhappyfarm.utils.RoomAdapter;
-import com.example.myhappyfarm.utils.Utils;
+import com.example.myhappyfarm.utils.*;
 import com.google.firebase.database.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class RoomsActivity extends AppCompatActivity {
+public class RoomsActivity extends AppCompatActivity implements IOldVersion {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance(Utils.DB_REF_URL).getReference();
     private RoomAdapter roomAdapter;
     ArrayList<Room> rooms;
@@ -40,12 +39,33 @@ public class RoomsActivity extends AppCompatActivity {
         public void onCancelled(@NonNull @NotNull DatabaseError error) {
         }
     };
+    private final ValueEventListener versionListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+            if (snapshot.child("code").getValue(Integer.class) > BuildConfig.VERSION_CODE) {
+                OldVersionDialogFragment dialog = new OldVersionDialogFragment();
+                Bundle args = new Bundle();
+                args.putString("currentVersion", BuildConfig.VERSION_NAME);
+                args.putString("dbVersion", snapshot.child("name").getValue(String.class));
+                dialog.setArguments(args);
+                dialog.setCancelable(false);
+                dialog.show(getSupportFragmentManager(), "custom");
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull @NotNull DatabaseError error) {
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rooms);
         rooms = new ArrayList<>();
+        databaseReference.child("version").addValueEventListener(versionListener);
+//        databaseReference.child("version").child("code").setValue(BuildConfig.VERSION_CODE);
+//        databaseReference.child("version").child("name").setValue(BuildConfig.VERSION_NAME);
         databaseReference.child("rooms").addValueEventListener(rooms_listener);
         roomAdapter = new RoomAdapter(this, R.layout.roomslist, rooms);
         rooms_list = findViewById(R.id.rooms_list);
@@ -57,6 +77,7 @@ public class RoomsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateRoomActivity.class);
         intent.putExtra("nickname", nickname);
         startActivity(intent);
+        finish();
     }
 
     public void joinClicked(String room_id) {
@@ -69,6 +90,7 @@ public class RoomsActivity extends AppCompatActivity {
                     intent.putExtra("nickname", nickname);
                     intent.putExtra("room_id", room_id);
                     startActivity(intent);
+                    finish();
                 }
             }
 
@@ -76,5 +98,10 @@ public class RoomsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
             }
         });
+    }
+
+    @Override
+    public void exitApp() {
+        finishAndRemoveTask();
     }
 }

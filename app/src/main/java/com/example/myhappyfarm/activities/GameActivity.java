@@ -104,6 +104,9 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
         }
     };
 
+    @Override
+    public void onBackPressed() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -227,6 +230,7 @@ public class GameActivity extends AppCompatActivity implements IEndGame {
         Intent intent = new Intent(this, RoomsActivity.class);
         intent.putExtra("nickname", nickname);
         startActivity(intent);
+        finish();
     }
 
     private void makeTurn(String turn) {

@@ -9,7 +9,7 @@
             android:layout_height="wrap_content"
             android:text="@string/rooms_title"
             android:textSize="40sp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"/>
     <ListView
             android:id="@+id/rooms_list"
@@ -22,9 +22,8 @@
             android:text="@string/create_room"
             android:onClick="createRoomClicked"
             android:layout_alignParentBottom="true"
-            android:layout_width="250dp"
             android:layout_centerHorizontal="true"
             android:textSize="18sp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"/>
-
 </RelativeLayout>

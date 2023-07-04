@@ -73,6 +73,7 @@ public class WaitingActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 databaseReference.child("games").removeEventListener(this);
                                 databaseReference.child("rooms").removeEventListener(removeRoomListener);
+                                finish();
                             }
                         }
 
