@@ -25,6 +25,7 @@ public class Game {
             this.players.add(newPlayer);
         }
         this.currentPlayer = -1;
+        this.purchaseCounter = 0;
         nextTurn();
     }
 
@@ -66,6 +67,7 @@ public class Game {
     }
 
     public void nextPhase() {
+        purchaseCounter = 0;
         if (phase == 0) {
             phase = 2;
         } else {
@@ -80,7 +82,6 @@ public class Game {
             currentPlayer++;
         }
         phase = 0;
-        purchaseCounter = 0;
         players.get(currentPlayer).getBarn().grow();
     }
 
@@ -92,6 +93,7 @@ public class Game {
                 players.get(currentPlayer).setCoins(-1);
                 purchaseCounter++;
                 if (purchaseCounter == 3 | getHand(currentPlayer).size() == 6 | getCoins(currentPlayer) == 0) {
+                    purchaseCounter = 0;
                     if (phase == 0) {
                         phase = 2;
                     } else {
@@ -105,7 +107,7 @@ public class Game {
     }
 
     public boolean buyAnimal(ArrayList<Integer> animalCards, ArrayList<Integer> foodCards) {
-        if (phase != 5) {
+        if (phase != 5 & purchaseCounter == 0) {
             ArrayList<Integer> requiredCards = new ArrayList<>();
             for (Integer animalCard : animalCards) {
                 requiredCards.addAll(getAnimalMarket().get(animalCard).getCost());
@@ -185,7 +187,7 @@ public class Game {
     }
 
     public boolean harvest(int i) {
-        if (phase != 3) {
+        if (phase != 3 & purchaseCounter == 0) {
             if (6 - getBarnInventory(currentPlayer).size() >= getBarnPlants(currentPlayer).get(i).size()) {
                 if (i == 1) {
                     for (FoodCard card : getBarnPlants(currentPlayer).get(i)) {
@@ -207,7 +209,7 @@ public class Game {
     }
 
     public boolean plant(ArrayList<Integer> cards) {
-        if (phase != 1) {
+        if (phase != 1 & purchaseCounter == 0) {
             if (cards.size() == 3) {
                 if (!(Objects.equals(players.get(currentPlayer).getHand().get(cards.get(0)).getValue(), players.get(currentPlayer).getHand().get(cards.get(1)).getValue()) & Objects.equals(players.get(currentPlayer).getHand().get(cards.get(1)).getValue(), players.get(currentPlayer).getHand().get(cards.get(2)).getValue()))) {
                     return false;
@@ -226,7 +228,7 @@ public class Game {
     }
 
     public boolean sell(ArrayList<Integer> cards) {
-        if (phase != 4) {
+        if (phase != 4 & purchaseCounter == 0) {
             sellFoodCards(cards, true);
             if (phase == 0) {
                 phase = 4;
@@ -251,7 +253,7 @@ public class Game {
     }
 
     public boolean coin() {
-        if (phase != 6) {
+        if (phase != 6 & purchaseCounter == 0) {
             players.get(currentPlayer).setCoins(1);
             if (phase == 0) {
                 phase = 6;

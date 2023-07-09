@@ -15,8 +15,8 @@ public class AnimalMarket {
     public AnimalMarket(int seed) {
         this.deck = new ArrayList<>();
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0)), 2, R.drawable.pig_2));
-        this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 2)), 3, R.drawable.pig_3));
-        this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 2)), 3, R.drawable.pig_3));
+        this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 2)), 3, R.drawable.pig_31));
+        this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 2)), 3, R.drawable.pig_32));
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 3, 4)), 4, R.drawable.pig_4));
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 3, 4)), 4, R.drawable.pig_4));
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 3, 4, 5)), 5, R.drawable.pig_5));
@@ -33,7 +33,7 @@ public class AnimalMarket {
         this.deck.add(new AnimalCard("cow", new ArrayList<>(List.of(2, 2, 4, 4, 5)), 7, R.drawable.cow_7));
         this.deck.add(new AnimalCard("cow", new ArrayList<>(List.of(2, 2, 4, 4, 5, 5)), 8, R.drawable.cow_8));
         this.deck.add(new AnimalCard("sheep", new ArrayList<>(List.of(3, 4, 4)), 6, R.drawable.sheep_6));
-        this.deck.add(new AnimalCard("sheep", new ArrayList<>(List.of(2, 3, 4, 4)), 7, R.drawable.sheep_6));
+        this.deck.add(new AnimalCard("sheep", new ArrayList<>(List.of(2, 3, 4, 4)), 7, R.drawable.sheep_7));
         this.deck.add(new AnimalCard("sheep", new ArrayList<>(List.of(2, 3, 4, 4)), 7, R.drawable.sheep_7));
         this.deck.add(new AnimalCard("sheep", new ArrayList<>(List.of(2, 4, 4, 5, 5)), 8, R.drawable.sheep_8));
         this.deck.add(new AnimalCard("sheep", new ArrayList<>(List.of(2, 4, 4, 5, 5)), 8, R.drawable.sheep_8));
