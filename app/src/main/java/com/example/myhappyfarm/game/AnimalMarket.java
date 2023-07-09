@@ -16,7 +16,7 @@ public class AnimalMarket {
         this.deck = new ArrayList<>();
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0)), 2, R.drawable.pig_2));
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 2)), 3, R.drawable.pig_31));
-        this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 2)), 3, R.drawable.pig_32));
+        this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 3)), 3, R.drawable.pig_32));
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 3, 4)), 4, R.drawable.pig_4));
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 3, 4)), 4, R.drawable.pig_4));
         this.deck.add(new AnimalCard("pig", new ArrayList<>(List.of(0, 3, 4, 5)), 5, R.drawable.pig_5));
